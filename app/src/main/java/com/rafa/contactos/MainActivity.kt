@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.rafa.contactos.databinding.ActivityMainBinding
+import android.content.Intent
 
 class MainActivity : Fragment(R.layout.activity_main){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -16,6 +17,14 @@ class MainActivity : Fragment(R.layout.activity_main){
         }
         (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.app_name)
     }
+
+    private val pfp = "https://loremflickr.com/g/240/320/person";
+    private val contacts =
+        listOf(
+            Contact("Juan", "654789321", "correo1@gmail.com", pfp),
+            Contact("Fran", "654123987", "correo2@gmail.com", pfp),
+            Contact("Ismael", "698741235", "email@gmail.com", pfp),
+        )
 
     private fun navigateTo(contact: Contact) {
         parentFragmentManager.commit {
@@ -28,11 +37,4 @@ class MainActivity : Fragment(R.layout.activity_main){
             addToBackStack(null)
         }
     }
-}
-
-private val contacts = (1..100).map { Contact(
-        "Contacto $it",
-        "Número: $it",
-        "Mail: $it",
-        "https://loremflickr.com/240/320/paris?lock=$it")
 }

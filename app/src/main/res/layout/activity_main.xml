@@ -12,5 +12,6 @@
         android:layout_height="match_parent"
         android:padding="2px"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="3"/>
+        app:spanCount="1"
+        tools:listitem="@layout/contact_layout"/>
 </FrameLayout>
