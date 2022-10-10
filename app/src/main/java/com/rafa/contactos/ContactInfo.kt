@@ -6,11 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.rafa.contactos.databinding.ContactInfoBinding
 
 class ContactInfo : Fragment(R.layout.contact_info) {
 
     companion object{
-        const val EXTRA_MOVIE = "DetailActivity:Movie"
+        const val EXTRA_CONTACT = "DetailActivity:Contact"
 
         fun create(contact: Contact): ContactInfo = ContactInfo().apply {
                 arguments = bundleOf(EXTRA_CONTACT to contact)
@@ -19,7 +20,7 @@ class ContactInfo : Fragment(R.layout.contact_info) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentDetailBinding.bind(view)
+        val binding = ContactInfoBinding.bind(view)
 
         val contact = arguments?.getParcelable<Contact>(EXTRA_CONTACT)
 
@@ -30,5 +31,4 @@ class ContactInfo : Fragment(R.layout.contact_info) {
                 .into(binding.imagen)
         }
     }
-
 }
